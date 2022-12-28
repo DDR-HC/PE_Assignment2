@@ -5,11 +5,11 @@ import com.dr.entity.Admininfo;
 
 public class AdmininfoServiceImpl {
 	//search by AID and password
-	public int searchByAIDAndPsw(int AID, String psw) {
+	public static int searchByUsernameAndPsw(String username, String psw) {
 		Admininfo ai=new Admininfo();
-		ai.setAID(AID);
+		ai.setUsername(username);
 		ai.setPsw(psw);
-		return AdmininfoDao.searchByAIDAndPsw(ai);
+		return AdmininfoDao.searchByUsernameAndPsw(ai);
 	}
 	
 }

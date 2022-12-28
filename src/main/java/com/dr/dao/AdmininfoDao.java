@@ -8,12 +8,12 @@ import com.dr.utils.GetConnection;
 
 public class AdmininfoDao {
 	//search admininfo
-	public static int searchByAIDAndPsw(Admininfo ai) {
+	public static int searchByUsernameAndPsw(Admininfo ai) {
 		int status=0;
 		try {
 			Connection connection=GetConnection.getConnection();
-			PreparedStatement pst=connection.prepareStatement("select * from Admininfo where AID=? and psw=?");
-			pst.setInt(1,ai.getAID());
+			PreparedStatement pst=connection.prepareStatement("select * from Admininfo where username=? and psw=?");
+			pst.setString(1,ai.getUsername());
 			pst.setString(2,ai.getPsw());
 			status=pst.executeUpdate();
 		}catch (Exception e) {

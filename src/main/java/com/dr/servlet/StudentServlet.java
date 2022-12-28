@@ -7,34 +7,71 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import com.dr.entity.Student;
+import com.dr.service.impl.StudentServiceImpl;
+
 /**
  * Servlet implementation class StudentServlet
  */
 public class StudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public StudentServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String method=request.getParameter("method");
+		if(method.equals("add")) {
+			addStudent(request,response);
+		}else if(method.equals("search")) {
+			searchStudent(request, response);
+		}else if(method.equals("delete")) {
+			deleteStudent(request, response);
+		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
+	
+	private void addStudent(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+		String SID=request.getParameter("SID");
+		String SName=request.getParameter("SName");
+		String Gender=request.getParameter("Gender");
+		String Passport=request.getParameter("Passport");
+		String Programme=request.getParameter("Programme");
+		String Intake=request.getParameter("Intake");
+		String Regtime=request.getParameter("Regtime");
+		String Nationality=request.getParameter("Nationality");
+		String phone=request.getParameter("phone");
+		int result= StudentServiceImpl.addStudent(SID, SName, Gender, Passport, Programme, Intake, Regtime, Nationality, phone);
+		if(result==1) {
+			//successfully add new students
+			
+		}else if(result==0) {
+			//unsuccessfully add new students
+			
+		}
+	}
+	
+	private void searchStudent(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+		String SID=request.getParameter("SID");
+		Student result=StudentServiceImpl.searchBySID(SID);
+		//successfully find the student
+		if(result.getSID()!=null) {
+			//successfully find the student information
+			System.out.println("sucessfully find the student information!");
+		}else {
+			//not find the student information
+			System.out.println("not find the student information");
+		}
+	}
+	
+	private void deleteStudent(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+		String SID=request.getParameter("SID");
+		int result=StudentServiceImpl.deleteBySID(SID);
+		if(result==1) {
+			//successfully delete the student
+		}else if(result==0) {
+			//fail to delete the student
+			
+		}
+	}
 }
