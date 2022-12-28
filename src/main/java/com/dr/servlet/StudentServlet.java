@@ -24,6 +24,8 @@ public class StudentServlet extends HttpServlet {
 			searchStudent(request, response);
 		}else if(method.equals("delete")) {
 			deleteStudent(request, response);
+		}else if(method.equals("update")) {
+			updateStudent(request, response);
 		}
 	}
 
@@ -71,6 +73,28 @@ public class StudentServlet extends HttpServlet {
 			//successfully delete the student
 		}else if(result==0) {
 			//fail to delete the student
+			
+		}
+	}
+	
+	private void updateStudent(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+		String SID=request.getParameter("SID");
+		String SName=request.getParameter("SName");
+		String Gender=request.getParameter("Gender");
+		String Passport=request.getParameter("Passport");
+		String Programme=request.getParameter("Programme");
+		String Intake=request.getParameter("Intake");
+		String Regtime=request.getParameter("Regtime");
+		String Nationality=request.getParameter("Nationality");
+		String phone=request.getParameter("phone");
+		int result=StudentServiceImpl.updateInfo(SID, SName, Gender, Passport, Programme, Intake, Regtime, Nationality, phone);
+		if(result==1) {
+			//successfully update the student information
+			
+			
+		}else if(result==0) {
+			//fail to update the student information
+			
 			
 		}
 	}

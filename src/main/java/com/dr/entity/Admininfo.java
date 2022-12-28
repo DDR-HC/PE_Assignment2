@@ -2,21 +2,12 @@ package com.dr.entity;
 
 //Admininfo table
 public class Admininfo {
-	//admin ID
-	private int AID;
-	
 	//username
 	private String username;
 	
 	//password
 	private String psw;
 	
-	public int getAID() {
-		return AID;
-	}
-	public void setAID(int aID) {
-		AID = aID;
-	}
 	public String getUsername() {
 		return username;
 	}
@@ -29,6 +20,4 @@ public class Admininfo {
 	public void setPsw(String psw) {
 		this.psw = psw;
 	}
-	
-	
 }
