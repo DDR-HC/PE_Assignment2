@@ -1,23 +1,15 @@
 package com.dr;
 
-import java.util.List;
-
-import com.dr.entity.Student;
-import com.dr.service.impl.StudentServiceImpl;
+import com.dr.dao.AdmininfoDao;
+import com.dr.entity.Admininfo;
+import com.dr.utils.ProcessPassword;
+import com.oracle.wls.shaded.java_cup.runtime.lr_parser;
 
 public class test {
 	public static void main(String[] args) {
-		Student result=StudentServiceImpl.searchBySID("SWE2009496");
-		if(result.getSID()!=null) {
-			System.out.println("找到了");
-		}else {
-			System.out.println("没找到");
-		}
-		
-		//display all student information
-		List<Student>resultList=StudentServiceImpl.displayAll();
-		for(int i=0;i<resultList.size();i++) {
-			System.out.println(resultList.get(i).getSID());
-		}
+		Admininfo ai=new Admininfo();
+		ai.setUsername("ddr");
+		ai.setPsw("g3139mqed4q2rk8moikjuthpntfuqph");
+		System.out.println(AdmininfoDao.searchByUsernameAndPsw(ai));
 	}
 }

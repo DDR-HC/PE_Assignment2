@@ -22,8 +22,8 @@ public class StudentServiceImpl {
 	}
 	
 	//search by student ID
-	public static Student searchBySID(String SID) {
-		return StudentDao.searchBySID(SID);
+	public static Student searchByIC(String IC) {
+		return StudentDao.searchByIC(IC);
 	}
 	
 	//delete student by SID

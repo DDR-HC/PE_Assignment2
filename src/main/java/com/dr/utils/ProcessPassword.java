@@ -24,13 +24,4 @@ public class ProcessPassword {
 		}
 		return bi.toString(32);
 	}
-	
-	public static void main(String[] args) {
-		try {
-			String inputstr="简单加密";
-			getResult(inputstr);
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
 }

@@ -9,7 +9,6 @@ public class AdmininfoServiceImpl {
 		Admininfo ai=new Admininfo();
 		ai.setUsername(username);
 		ai.setPsw(psw);
-		return AdmininfoDao.searchByUsernameAndPsw(ai);
-	}
-	
+		return AdmininfoDao.searchByUsernameAndPsw(ai).getUsername().equals(username) ? 1 : 0;
+	}	
 }

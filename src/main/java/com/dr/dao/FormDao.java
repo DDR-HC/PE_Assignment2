@@ -63,12 +63,12 @@ public class FormDao {
 		return status;
 	}
 	
-	public static Form searchByFID(int FID) {
+	public static Form searchBySID(String SID) {
 		Form newForm=new Form();
 		Connection connection=GetConnection.getConnection();
 		try {
-			PreparedStatement pst = connection.prepareStatement("select * from Form where FID=?");
-			pst.setInt(1, FID);
+			PreparedStatement pst = connection.prepareStatement("select * from Form where SID=?");
+			pst.setString(1, SID);
 			ResultSet rs=pst.executeQuery();
 			while(rs.next()) {
 				newForm.setFID(rs.getInt("FID"));

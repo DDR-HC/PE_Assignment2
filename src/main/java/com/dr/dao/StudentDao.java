@@ -101,12 +101,12 @@ public class StudentDao {
 	}
 	
 	//search by SID
-	public static Student searchBySID(String SID) {
+	public static Student searchByIC(String IC) {
 		Student result=new Student();
 		Connection connection=GetConnection.getConnection();
 		try {
-			PreparedStatement pst=connection.prepareStatement("select * from Student where SID=?");
-			pst.setString(1, SID);
+			PreparedStatement pst=connection.prepareStatement("select * from Student where Passport=?");
+			pst.setString(1, IC);
 			ResultSet rs=pst.executeQuery();
 			while(rs.next()) {
 				result.setSID(rs.getString("SID"));

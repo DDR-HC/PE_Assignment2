@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 
 import com.dr.entity.Student;
@@ -13,6 +14,7 @@ import com.dr.service.impl.StudentServiceImpl;
 /**
  * Servlet implementation class StudentServlet
  */
+@WebServlet("/student")
 public class StudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -54,8 +56,8 @@ public class StudentServlet extends HttpServlet {
 	}
 	
 	private void searchStudent(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
-		String SID=request.getParameter("SID");
-		Student result=StudentServiceImpl.searchBySID(SID);
+		String IC=request.getParameter("Passport");
+		Student result=StudentServiceImpl.searchByIC(IC);
 		//successfully find the student
 		if(result.getSID()!=null) {
 			//successfully find the student information
@@ -71,6 +73,7 @@ public class StudentServlet extends HttpServlet {
 		int result=StudentServiceImpl.deleteBySID(SID);
 		if(result==1) {
 			//successfully delete the student
+			request.getRequestDispatcher("afterlogin.jsp").forward(request, response);
 		}else if(result==0) {
 			//fail to delete the student
 			
