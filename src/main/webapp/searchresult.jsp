@@ -1,21 +1,21 @@
+<%@page import="com.dr.service.impl.StudentServiceImpl"%>
+<%@page import="com.dr.entity.Student"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login - Academic Admin</title>
+    <title>Student Registration System</title>
     <link href="resources/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="resources/css/main.css" rel="stylesheet">
 </head>
 <body>
-<%@page import="com.dr.service.impl.StudentServiceImpl"%>
-<%@page import="com.dr.entity.Student"%>
-<%@page import="java.util.List"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
-List<Student>result=StudentServiceImpl.displayAll();
-request.setAttribute("result", result);
+	String IC=(String)request.getAttribute("result");
+	Student s=StudentServiceImpl.searchByIC(IC);
+	request.setAttribute("s",s);
 %>
     <div class="container-fluid pageheader">
         <div class="content">
@@ -42,11 +42,7 @@ request.setAttribute("result", result);
                                     </div>
                                 </div>
                             </form>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <a href="addData.jsp" class="btn btn-dark fw-bold" role="button">ADD DATA</a>
-                            </div>
-                        </div>
+
                         <br>
                         <div class="list">
                             <table class="table">
@@ -64,28 +60,26 @@ request.setAttribute("result", result);
                                     </tr>
                                 </thead>
                                 <tbody class="table-group-divider">
-                                    <c:forEach items="${result}" var="s">
-                                        <tr>
-                                            <td>${s.getPassport()}</td>
-                                            <td>${s.getSID()}</td>
-                                            <td>${s.getSName() }</td>
-                                            <td>${s.getGender() }</td>
-                                            <td>${s.getNationality() }</td>
-                                            <td>${s.getRegtime()}</td>
-                                            <td>${s.getProgramme()}</td>
-                                            <td>
-                                                <a href="addform.jsp?SID=${s.getSID()}" class="btn btn-outline-warning btn-sm" role="button">
-                                                    Click Here</a>
-                                            </td>
-                                            <td>
-                                                <a href="form?method=update" class="btn btn-outline-success btn-sm" role="button">
-                                                    Edit</a>
-                                            </td>
-                                            <td><a href="student?method=delete&SID=${s.getSID()}" class="btn btn-outline-danger btn-sm" role="button">
-                                                Delete</a>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
+                                    <tr>
+                                        <td>${s.getPassport()}</td>
+                                        <td>${s.getSID()}</td>
+                                        <td>${s.getSName() }</td>
+                                        <td>${s.getGender() }</td>
+                                        <td>${s.getNationality() }</td>
+                                        <td>${s.getRegtime()}</td>
+                                        <td>${s.getProgramme()}</td>
+                                        <td>
+                                            <a href="form?method=search&SID=${s.getSID() }" class="btn btn-outline-warning btn-sm" role="button">
+                                                Click Here</a>
+                                        </td>
+                                        <td>
+                                            <a href="" class="btn btn-outline-success btn-sm" role="button">
+                                                Edit</a>
+                                        </td>
+                                        <td><a href="student?method=delete&SID=${s.getSID()}" class="btn btn-outline-danger btn-sm" role="button">
+                                            Delete</a>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

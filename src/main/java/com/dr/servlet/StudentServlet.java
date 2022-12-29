@@ -48,20 +48,31 @@ public class StudentServlet extends HttpServlet {
 		int result= StudentServiceImpl.addStudent(SID, SName, Gender, Passport, Programme, Intake, Regtime, Nationality, phone);
 		if(result==1) {
 			//successfully add new students
-			
+			System.out.println("successfully add new students!");
+			request.setAttribute("result", Passport);
+			request.getRequestDispatcher("searchresult.jsp").forward(request, response);
 		}else if(result==0) {
 			//unsuccessfully add new students
-			
+			System.out.println("fail to add new students!");
+			response.sendRedirect("errorPage.html");
 		}
 	}
 	
 	private void searchStudent(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
 		String IC=request.getParameter("Passport");
 		Student result=StudentServiceImpl.searchByIC(IC);
+		System.out.println("------------------------------------------------------");
+		System.out.println(result.getSID());
+		System.out.println(result.getIntake());
+		System.out.println(result.getGender());
+		System.out.println(result.getNationality());
+		System.out.println(result.getPassport());
 		//successfully find the student
 		if(result.getSID()!=null) {
 			//successfully find the student information
 			System.out.println("sucessfully find the student information!");
+			request.setAttribute("result", result.getPassport());
+			request.getRequestDispatcher("searchresult.jsp").forward(request, response);
 		}else {
 			//not find the student information
 			System.out.println("not find the student information");

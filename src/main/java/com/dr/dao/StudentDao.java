@@ -104,6 +104,8 @@ public class StudentDao {
 	public static Student searchByIC(String IC) {
 		Student result=new Student();
 		Connection connection=GetConnection.getConnection();
+		System.out.println("StudentDao layer");
+		System.out.println("passport="+IC);
 		try {
 			PreparedStatement pst=connection.prepareStatement("select * from Student where Passport=?");
 			pst.setString(1, IC);
