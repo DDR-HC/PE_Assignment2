@@ -1,3 +1,5 @@
+<%@page import="com.dr.service.impl.StudentServiceImpl"%>
+<%@page import="com.dr.entity.Student"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,7 +10,15 @@
     <link href="resources/css/main.css" rel="stylesheet">
 </head>
 <body>
-    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	System.out.println("----------------------------------------");
+	System.out.println("editData.jsp");
+	String Passport=request.getParameter("IC");
+	Student result=StudentServiceImpl.searchByIC(Passport);
+	request.setAttribute("s",result);
+%>
+
     <div class="container-fluid pageheader">
         <div class="content">
             <h1 class="title text-center">Student Registration System</h1>
@@ -24,12 +34,12 @@
                         <h2 class="title text-center fs-3">Student Registration Information Adding Form</h2>
                         <br>
 
-                        <!-- Fetch Data from Serviceimplementation -->
-                        <input type="hidden" name="Gender" id="Gender" value="<%=${s.getGender()}%>">
-                        <input type="hidden" name="Programme" id="Programme" value="<%=${s.getProgramme()}%>">
-                        <input type="hidden" name="Intake" id="Intake" value="<%=${s.getIntake()}%>">
-                        <input type="hidden" name="Regtime" id="Regtime" value="<%=${s.getRegtime()}%>">
-                        <input type="hidden" name="Nationality" id="Nationality" value="<%=${s.getNationality()}%>">
+                        <!-- Fetch Data from Service implementation -->
+                        <input type="hidden" name="Gender" id="Gender" value="${s.getGender()}">
+                        <input type="hidden" name="Programme" id="Programme" value="${s.getProgramme()}">
+                        <input type="hidden" name="Intake" id="Intake" value="${s.getIntake()}">
+                        <input type="hidden" name="Regtime" id="Regtime" value="${s.getRegtime()}">
+                        <input type="hidden" name="Nationality" id="Nationality" value="${s.getNationality()}">
 
                         <!--Student Info-->
                         <form name="studentinfo" action="" method="post">
@@ -40,7 +50,7 @@
                                         SID</label>
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="SID" value="SID" disabled>
+                                    <input type="text" class="form-control" name="SID" value="${s.getPassport()}" disabled>
                                 </div>
                             </div>
 
@@ -54,7 +64,7 @@
                                         Name</label>
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="SName" value="<%=${s.getSName()}%>">
+                                    <input type="text" class="form-control" name="SName" value="${s.getSName()}">
                                 </div>
                                 <div class="col-md-1"></div>
                                 <div class="col-md-1">
@@ -80,7 +90,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="Passport" value="<%=${s.getPassport()}%>"> 
+                                    <input type="text" class="form-control" name="Passport" value="${s.getPassport()}"> 
                                 </div>
                             </div>
                             <br>
@@ -103,7 +113,7 @@
                                         <option value="Digital Media Technology">Digital Media Technology</option>                                        
                                         <option value="Finance">Finance</option>
                                         <option value="Management in International Business">Management in International Business</option>
-                                        <option value="Software Enginneering">Software Enginneering</option>
+                                        <option value="Software Engineering">Software Engineering</option>
                                     </select>
                                 </div>
                             </div>
@@ -176,7 +186,7 @@
                                         Phone</label>
                                 </div>
                                 <div class="col-md-5">
-                                    <input type="text" class="form-control" name="phone" value="<%=${s.getPhone()}%>">
+                                    <input type="text" class="form-control" name="phone" value="${s.getPhone()}">
                                 </div>
                             </div>
 

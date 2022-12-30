@@ -40,7 +40,7 @@
 
                             <p class="desc text-justify fs-5" style="margin-top: 40px;">Please fill in the form below to add a student information record.</p>
                             
-                            <!--Student Infomation-->
+                            <!--Student Information-->
                             <div class="row">
                                 <div class="col-md-1">
                                     <label class="form-label fs-5 fw-bold">
@@ -97,7 +97,7 @@
                                         <option value="Digital Media Technology">Digital Media Technology</option>                                        
                                         <option value="Finance">Finance</option>
                                         <option value="Management in International Business">Management in International Business</option>
-                                        <option value="Software Enginneering">Software Enginneering</option>
+                                        <option value="Software Engineering">Software Engineering</option>
                                     </select>
                                 </div>
                             </div>

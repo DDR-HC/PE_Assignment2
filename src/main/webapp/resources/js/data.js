@@ -40,7 +40,7 @@ var val;
 
 // intake select opts
     slct = form.Intake;
-    opts = form.Programme.options;
+    opts = form.Intake.options;
     // console.log(slct + ", " + opts);
     
     val = document.getElementById("Intake").value;
