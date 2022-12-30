@@ -37,7 +37,7 @@
                                 <label class="fw-bold">Password</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="password" placeholder="password">
+                                <input type="password" class="form-control" name="password" placeholder="password">
                             </div>
                         </div>
                         <br>
