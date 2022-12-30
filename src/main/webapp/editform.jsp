@@ -3,19 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Questionnaire</title>
+    <title>Edit Questionnaire</title>
     <link href="resources/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="resources/css/main.css" rel="stylesheet">
 </head>
 <body>
-<%
-	String SID=request.getParameter("SID");
-	request.setAttribute("SID",SID);
-%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <div class="container-fluid pageheader">
         <div class="content">
-            <h1 class="title text-center">Add Questionnaire - Student Registration System</h1>
+            <h1 class="title text-center">Edit Questionnaire - Student Registration System</h1>
         </div>
     </div>
     
@@ -28,15 +23,20 @@
                         <h2 class="title text-center fs-3">Student Registration Questionnaire</h2>
                         <br>
 
-                        <!-- Questionnnaire -->
-                        <form action="Form" method="post">
+                        <!-- fetch data from serviceimpl -->
+                        <input type="hidden" name="Q1" id="Q1" value="<%=${f.getQ1()}%>">
+                        <input type="hidden" name="Q2" id="Q2" value="<%=${f.getQ2()}%">
+                        <input type="hidden" name="Q3" id="Q3" value="<%=${f.getQ3()}%>">
+
+                        <!-- Questionnaire -->
+                        <form name="questionnaire" action="" method="post">
                             <!-- Student ID -->
                             <div class="row">
                                 <div class="col-md-2">
                                     <label class="form-label fs-5 fw-bold">Student ID</label>
                                 </div>
                                 <div class="col-md-4">
-                                    <input class="form-control" disabled type="text" name="SID" value="${SID }">
+                                    <input class="form-control" type="text" name="SID" value="SID" disabled>
                                 </div>
                             </div>
                             <br>
@@ -168,7 +168,7 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <textarea class="form-control" row="5" name="Q4"></textarea>
+                                    <textarea class="form-control" row="5" name="Q4">${f.getQ4()}</textarea>
                                 </div>
                             </div>
                             <br>
@@ -186,7 +186,7 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <textarea class="form-control" row="5" name="Q5"></textarea>
+                                    <textarea class="form-control" row="5" name="Q5">${f.getQ5()}</textarea>
                                 </div>
                             </div>
                             <br>
@@ -209,5 +209,7 @@
                 <small class="copyright">Copyright @ SWE306 A2 GROUP 5. All Rights Reserved | SWE2009499 SWE2009495</small>
         </div><!--container-->
     </footer><!--footer-->
+
+    <script src="resources/js/form.js"></script>
 </body>
 </html>

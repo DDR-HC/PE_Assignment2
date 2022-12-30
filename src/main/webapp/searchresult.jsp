@@ -19,7 +19,7 @@
 %>
     <div class="container-fluid pageheader">
         <div class="content">
-            <h1 class="title text-center">Student Registration System</h1>
+            <h1 class="title text-center">Student Search Result - Student Registration System</h1>
         </div>
     </div>
 

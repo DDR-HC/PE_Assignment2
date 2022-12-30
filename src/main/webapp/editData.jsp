@@ -21,7 +21,7 @@
 
     <div class="container-fluid pageheader">
         <div class="content">
-            <h1 class="title text-center">Student Registration System</h1>
+            <h1 class="title text-center">Edit Student Info - Student Registration System</h1>
         </div>
     </div>
 
@@ -31,7 +31,7 @@
                 <div class="content">
                     <div class="item">
                         <a href="afterlogin.jsp" class="btn btn-outline-danger">Return to Homepage</a>
-                        <h2 class="title text-center fs-3">Student Registration Information Adding Form</h2>
+                        <h2 class="title text-center fs-3">Student Registration Information Edit Form</h2>
                         <br>
 
                         <!-- Fetch Data from Service implementation -->
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
 
-                            <p class="desc text-justify fs-5" style="margin-top: 40px;">Please fill in the form below to add a student information record.</p>
+                            <p class="desc text-justify fs-5" style="margin-top: 40px;">Please fill in the form below to edit the student information record.</p>
 
                             <!--Student Infomation-->
                             <div class="row">
@@ -135,7 +135,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <select class="form-select" name="Intake">
-                                        <option value="NULL">--please select--</option>
+                                        <option value="">--please select--</option>
                                         <option value="202209">202209</option>
                                         <option value="202302">202302</option>
                                         <option value="202304">202304</option>
@@ -147,7 +147,7 @@
                                 <div class="col-md-2"></div>
                                 <div class="col-md-4">
                                     <select class="form-select" name="Regtime"">
-                                        <option value="NULL">--please select--</option>
+                                        <option value="">--please select--</option>
                                         <option value="202209">202209</option>
                                         <option value="202302">202302</option>
                                         <option value="202304">202304</option>
@@ -168,7 +168,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <select class="form-select" name="Nationality">
-                                        <option value="NULL">--please select--</option>
+                                        <option value="">--please select--</option>
                                         <option value="Malaysian">Malaysian</option>
                                         <option value="Chinese">Chinese</option>
                                         <option value="Indonesian">Indonesian</option>
@@ -208,7 +208,5 @@
                 <small class="copyright">Copyright @ SWE306 A2 GROUP 5. All Rights Reserved | SWE2009499 SWE2009495</small>
         </div><!--container-->
     </footer><!--footer-->
-
-    <script src="resources/js/data.js" type="text/javascript"></script>
 </body>
 </html>

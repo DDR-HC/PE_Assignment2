@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="loginbox">
             <div class="header">
-                <h1 class="title text-center fs-3">Student Resgistration System</h1>
+                <h1 class="title text-center fs-3">Login - Student Resgistration System</h1>
             </div>
 
             <div class="content">
